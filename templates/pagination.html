@@ -1,0 +1,14 @@
+
+{% if object_list.items.has_other_pages %}
+  <ul class="breadcrumb justify-content-center pt-3">
+    {% for i in object_list.page_range %}
+      {% if object_list.items.number == i %}
+      <li <div class="breadcrumb-item active">
+        <a class="text-info" href="#">{{i}}<span class="sr-only">(current)<span></a>
+      </li>
+      {% else %}
+      <li class="breadcrumb-item"><a class="text-muted" href="?page={{i}}">{{i}}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}

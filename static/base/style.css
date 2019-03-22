@@ -1,0 +1,124 @@
+#body{
+  font-family: 'Laila', serif;
+  color: black;
+}
+/* Nav style */
+#nav{
+  background-color: #f0eeec;
+}
+
+/* welcome section style */
+#welcome-section h1{
+  font-size: 18px;
+  color: black;
+}
+#welcome-section{
+  height: 100vh;
+  padding-top: 35vh;
+  background-color: #f0eeec;
+  color: white;
+}
+#welcome-pic{
+  height: 200px;
+  border-radius: 15px;
+  padding-bottom: 5px;
+}
+
+/* project style */
+#projects{
+  padding-top: 5%;
+  margin-bottom: 50px;
+}
+#project-card{
+  width: 80%;
+  /* center card */
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+
+  border: 6px;
+  border-color: #f0eeec;
+  border-style: outset;
+}
+#projects, #footer, #footer i, #contact-div, #contact-div i{
+  color: black;
+}
+#more-project{
+  color: black;
+  padding-top: 20px;
+  text-decoration:none;
+}
+#more-project:hover{
+  text-decoration:none;
+}
+#more-div{
+  height: 50px;
+  background-color: #f0eeec;
+  border-radius: 10px;
+  margin: 20px 150px;
+  padding-top: 10px;
+
+}
+/* contact style */
+
+
+
+
+/* footer style */
+#footer{
+  margin-top: 20px;
+}
+
+#twitter-icon i{
+  color: #1DA1F2;
+}
+#github-icon i{
+  color: #F1502F;
+}
+#ig-icon i{
+  color: #8a3ab9;
+}
+#reddit-icon i{
+  color: #ff4301;
+}
+#lk-icon i{
+  color: #0077B5;
+}
+
+/* media query for Tabblet & desktop layout */
+@media(min-width: 1000px){
+  #logo{
+    margin-left: 30px;
+    margin-right: 50px;
+  }
+  #nav-link-1, #nav-link-2, #nav-link-3{
+    margin-right: 80px;
+  }
+  #project-card{
+    width: 350px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 40px;
+  }
+}
+/* media query for tablet portrait layout */
+@media(max-width: 999px){
+  #logo{
+    margin-left: 30px;
+    margin-right: 50px;
+  }
+  #welcome-section h1{
+    font-size: 15px;
+  }
+
+}
+/* media query for mobile landscape */
+@media(max-width: 767px){
+  #logo{
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+  #welcome-section h1{
+    font-size: 15px;
+  }
+}

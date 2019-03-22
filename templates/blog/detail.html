@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block header %}
+
+  <div class="header">
+    <h4>{{object.title}}</h4>
+  </div>
+
+{% endblock %}
+
+{% block post %}
+
+    <div class="card">
+      <h6>Date Published: {{object.date_added|date:"F d, Y"}}</h6>
+      <div class="">
+        <img class="img-fluid img-thumbnail mx-auto d-block mt-3 mb-3" id='thumbnail-detail' src="{{object.image.url}}" alt="">
+      </div>
+      <p>{{object.content}}</p>
+    </div>
+
+{% endblock %}%}
