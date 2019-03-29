@@ -34,7 +34,6 @@ class PostListView(ListView):
             'items': items,
             'page_range': page_range,
         }
-        print(instance)
         return instance
 
 class PostDetailView(DetailView):
