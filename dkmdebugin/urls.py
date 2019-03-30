@@ -18,7 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from .views import Home, contact, handler404, handler500
+from .views import Home, contact
 
 urlpatterns = [
     path('blog/', include(('blog.urls', 'blog'), 'blog')),
@@ -30,8 +30,3 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-# # For custom error templates
-# handler404 = handler404
-# handler500 = handler500
