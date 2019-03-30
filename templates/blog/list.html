@@ -6,9 +6,11 @@
     <div class="card">
       <a class="text-body" href="{{item.get_absolute_url}}"><h4>{{item.title}}</h4></a>
       <small>Date Published: {{item.date_added|date:"F d, Y"}}</small>
+      {% if item.image %}
       <div class="">
         <img class="img-fluid img-thumbnail float-left mt-3 mb-3" id='thumbnail' src="{{item.image.url}}" alt="">
       </div>
+      {% endif %}
       <p>{{item.content|truncatechars:250}}</p>
     </div>
   {% endfor %}
