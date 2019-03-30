@@ -32,3 +32,13 @@ def contact(request):
         'form': form,
     }
     return render(request, template, context)
+
+
+# for custom error pages
+def handler404(request, exception):
+    '''Show 404 cutom error page'''
+    return render(request, 'custom_error_pages/404.html', status=404)
+
+def handler500(request):
+    '''Show 500 error page'''
+    return render(request, 'custom_error_pages/500.html', status=500)
