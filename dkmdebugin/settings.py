@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decouple import  config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'swjug@+8+7r6hno3uvy9vvho375f*$r_lfo$t^&qls(n63!of^'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('LOCAL_DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -134,16 +135,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Email detail
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('GMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
-
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Heroku settings
 if os.getcwd() == '/app':
     import dj_database_url
+
     DATABASES = {
        'default': dj_database_url.config(default='postgres://localhost')
     }
@@ -152,9 +153,9 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Allow all host headers.
-    ALLOWED_HOSTS = ['dkmdebugin.herokuapp.com']
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
-    DEBUG = False
+    DEBUG = config('DEBUG')
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -168,6 +169,4 @@ if os.getcwd() == '/app':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
-    #
-    # MEDIA_URL = '/media/'
-    # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+    
