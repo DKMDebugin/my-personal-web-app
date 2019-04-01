@@ -21,8 +21,8 @@ def contact(request):
                         'alert alert-success alert-dismissible')
         subject         = f'Message From My Website'
         message         = f"FROM: {instance['name']}\nMESSAGE: {instance['message']}\nEMAIl: {instance['email']}"
-        from_email      = settings.EMAIL_HOST_USER
-        to              = [from_email]
+        from_email      = 'noreply@salimonjamiu.com'
+        to              = ['tunedae1shilay@gmail.com']
         send_mail(subject=subject, message=message, from_email=from_email,
         recipient_list=to, fail_silently=True)
 
