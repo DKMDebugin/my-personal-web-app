@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('LOCAL_DEBUG')
+DEBUG = config('LOCAL_DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -155,7 +155,7 @@ if os.getcwd() == '/app':
     # Allow all host headers.
     ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')])
 
-    DEBUG = config('DEBUG')
+    DEBUG = config('DEBUG', cast=bool)
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -169,4 +169,3 @@ if os.getcwd() == '/app':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
-    
