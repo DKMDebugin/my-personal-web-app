@@ -8,7 +8,7 @@
       <h4 class="card-title">{{object.title}}</h4>
       <h6>Date Published: {{object.date_added|date:"F d, Y"}}</h6>
       {% if object.link %}
-        <a href="{{object.link}}" class="card-link text-info">Click for more information.</a>
+        <a href="{{object.link}}" class="card-link text-info" target="_blank">Click for more information.</a>
       {% endif %}
       {% if object.image %}
         <img class="card-img img-fluid img-thumbnail mx-auto d-block mt-3 mb-3" id='thumbnail-detail' src="{{object.image.url}}" alt="">
