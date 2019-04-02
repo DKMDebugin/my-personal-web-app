@@ -25,6 +25,7 @@ class Blog(models.Model):
     title       = models.CharField(max_length=50)
     slug        = models.SlugField(blank=True, unique=True)
     content     = models.TextField()
+    link        = models.CharField(max_length=250, blank=True, null=True)
     author      = models.CharField(max_length=50)
     date_added  = models.DateTimeField(auto_now_add=True)
     image       = models.ImageField(upload_to=upload_image_path, blank=True, null=True)

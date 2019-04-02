@@ -1,23 +1,20 @@
 {% extends 'blog/base.html' %}
 
-{% block header %}
 
-  <div class="header">
-    <h4>{{object.title}}</h4>
-  </div>
-
-{% endblock %}
 
 {% block post %}
 
-    <div class="card">
+    <div class="card" >
+      <h4 class="card-title">{{object.title}}</h4>
       <h6>Date Published: {{object.date_added|date:"F d, Y"}}</h6>
-      {% if object.image %}
-      <div class="">
-        <img class="img-fluid img-thumbnail mx-auto d-block mt-3 mb-3" id='thumbnail-detail' src="{{object.image.url}}" alt="">
-      </div>
+      {% if object.link %}
+        <a href="{{object.link}}" class="card-link text-info">Click for more information.</a>
       {% endif %}
-      <p>{{object.content}}</p>
+      {% if object.image %}
+        <img class="card-img img-fluid img-thumbnail mx-auto d-block mt-3 mb-3" id='thumbnail-detail' src="{{object.image.url}}" alt="">
+      {% endif %}
+
+      <p class="card-text mt-4">{{object.content}}</p>
     </div>
 
-{% endblock %}%}
+{% endblock %}
