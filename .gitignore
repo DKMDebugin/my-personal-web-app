@@ -2,3 +2,4 @@ dk_env/
 __pycache__/
 db.sqlite*
 .env
+credentials.csv
