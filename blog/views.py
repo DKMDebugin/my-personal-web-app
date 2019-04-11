@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView
+from django.db.models import Max
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 
@@ -11,7 +12,8 @@ class PostListView(ListView):
 
     def get_queryset(self, *args, **kwargs):
         request      = self.request
-        posts        = Blog.objects.all()
+        posts        = Blog.objects.all().annotate(lr=Max('date_created'))\
+                                                    .order_by('-lr')
 
         # Set pagination
         paginator = Paginator(posts, 2)

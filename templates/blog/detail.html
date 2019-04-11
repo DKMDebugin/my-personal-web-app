@@ -6,9 +6,15 @@
 
     <div class="card" >
       <h4 class="card-title">{{object.title}}</h4>
-      <small>
-        Date Published: {{object.date_added|date:"F d, Y"}}
-      </small>
+      <ul class="list-inline">
+        <li class="list-inline-item"><small class="small">Published: {{object.date_created|date:"F d, Y"}}</small></li>
+        {% if object.date_created|timesince:object.date_updated > object.date_created|timesince:object.date_created %}
+          <li class="list-inline-item"><small class="small">|</small></li>
+          <li class="list-inline-item">
+            <small class='small'>Updated {{object.date_created|timesince:object.date_updated}} ago</small>
+          </li>
+        {% endif %}
+      </ul>
         {% if object.link %}
           <small>
             <a href="{{object.link}}" class="card-link text-info" target="_blank">Click for more information.</a>

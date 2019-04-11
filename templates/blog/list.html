@@ -4,14 +4,28 @@
 
   {% for item in object_list.items %}
     <div class="card">
-      <a class="text-body" href="{{item.get_absolute_url}}"><h4>{{item.title}}</h4></a>
-      <small>Date Published: {{item.date_added|date:"F d, Y"}}</small>
-      {% if item.image %}
-      <div class="">
-        <img class="img-fluid img-thumbnail float-left mt-3 mb-3" id='thumbnail' src="{{item.image.url}}" alt="">
+      <div class="row">
+        <div class="col-4 col-lg-3">
+          {% if item.image %}
+            <img class="img-fluid img-thumbnail" id='thumbnail' src="{{item.image.url}}" alt="">
+          {% else %}
+            <img src="" alt="">
+          {% endif %}
+        </div>
+        <div class="col-8 col-lg-6">
+          <a class="text-body" href="{{item.get_absolute_url}}"><h4>{{item.title}}</h4></a>
+          <ul class="list-inline">
+            <li class="list-inline-item"><small class="small">Published: {{item.date_created|date:"F d, Y"}}</small></li>
+            {% if item.date_created|timesince:item.date_updated > item.date_created|timesince:item.date_created %}
+              <li class="list-inline-item"><small class="small">|</small></li>
+              <li class="list-inline-item">
+                <small class='small'>Updated {{item.date_created|timesince:item.date_updated}} ago</small>
+              </li>
+            {% endif %}
+          </ul>
+          <p>{{item.content|truncatechars:250}}</p>
+        </div>
       </div>
-      {% endif %}
-      <p>{{item.content|truncatechars:250}}</p>
     </div>
   {% endfor %}
 
