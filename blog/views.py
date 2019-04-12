@@ -16,7 +16,7 @@ class PostListView(ListView):
                                                     .order_by('-lr')
 
         # Set pagination
-        paginator = Paginator(posts, 2)
+        paginator = Paginator(posts, 5)
         page= request.GET.get('page') # get current page
         try:
             items = paginator.page(page)

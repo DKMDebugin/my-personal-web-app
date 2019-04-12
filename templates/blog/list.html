@@ -9,21 +9,21 @@
           {% if item.image %}
             <img class="img-fluid img-thumbnail" id='thumbnail' src="{{item.image.url}}" alt="">
           {% else %}
-            <img src="" alt="">
+            <img class="img-fluid img-thumbnail" id='thumbnail' src="https://dummyimage.com/200x200/525756/fff.png&text=Image" alt="">
           {% endif %}
         </div>
         <div class="col-8 col-lg-6">
-          <a class="text-body" href="{{item.get_absolute_url}}"><h4>{{item.title}}</h4></a>
+          <a class="text-body" href="{{item.get_absolute_url}}"><h4 class="mb-0">{{item.title}}</h4></a>
           <ul class="list-inline">
-            <li class="list-inline-item"><small class="small">Published: {{item.date_created|date:"F d, Y"}}</small></li>
+            <li class="list-inline-item"><small class="small"><i class="far fa-clock"></i> {{item.date_created|date:"F d, Y"}}</small></li>
             {% if item.date_created|timesince:item.date_updated > item.date_created|timesince:item.date_created %}
               <li class="list-inline-item"><small class="small">|</small></li>
               <li class="list-inline-item">
-                <small class='small'>Updated {{item.date_created|timesince:item.date_updated}} ago</small>
+                <small class='small'><i class="fas fa-pen-alt"></i> {{item.date_updated|timesince}} ago</small>
               </li>
             {% endif %}
           </ul>
-          <p>{{item.content|truncatechars:250}}</p>
+          <p>{{item.content|truncatechars:320}}</p>
         </div>
       </div>
     </div>
