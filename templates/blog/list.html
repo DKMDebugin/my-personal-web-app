@@ -1,18 +1,19 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 
 {% block post %}
 
   {% for item in object_list.items %}
     <div class="card">
       <div class="row">
-        <div class="col-4 col-lg-3">
+        <div class="col-10 mx-sm-auto col-sm-4 col-lg-3 mx-lg-0 mt-lg-0">
           {% if item.image %}
             <img class="img-fluid img-thumbnail" id='thumbnail' src="{{item.image.url}}" alt="">
           {% else %}
             <img class="img-fluid img-thumbnail" id='thumbnail' src="https://dummyimage.com/200x200/525756/fff.png&text=Image" alt="">
           {% endif %}
         </div>
-        <div class="col-8 col-lg-6">
+        <div class="col-10 mx-sm-auto mt-sm-4 col-sm-8 col-lg-8 mx-lg-0 mt-lg-0">
           <a class="text-body" href="{{item.get_absolute_url}}"><h4 class="mb-0">{{item.title}}</h4></a>
           <ul class="list-inline">
             <li class="list-inline-item"><small class="small"><i class="far fa-clock"></i> {{item.date_created|date:"F d, Y"}}</small></li>

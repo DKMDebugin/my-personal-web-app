@@ -1,16 +1,16 @@
 body {
   /* font-family: Arial; */
-  padding: 40px;
+  padding: 20px;
   background: #f0eeec;
 }
 
 /* Header/Blog Title */
 .header {
   margin-top: 60px;
+  padding: 30px;
   font-size: 40px;
   text-align: center;
   background: white;
-  border-radius: 20px;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -51,7 +51,7 @@ body {
 /* blog list & detail picture */
 #thumbnail{
   width: 250px;
-  height: 200px;
+  height: 250px;
 
 }
 #thumbnail-detail{
@@ -78,5 +78,29 @@ body {
   }
   #about-pic{
     width:230px;
+  }
+}
+@media screen and (max-width: 1156px){
+  #about-pic{
+    width:180px;
+    height: 180px;
+  }
+}
+@media screen and (max-width: 343px){
+  #about-pic{
+    width:150px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 299px){
+  #thumbnail{
+    width:150px;
+    height: 170px;
+  }
+}
+@media screen and (max-width: 295px){
+  #about-pic{
+    width:125px;
+    height: 125px;
   }
 }
