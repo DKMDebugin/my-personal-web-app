@@ -11,13 +11,33 @@
         </a>
         <h1>Welcome to DKMDebugin's Domicile.<br>
           My legal name is Jamiu Olashile Salimon.<br>
-          I'm a full stack python web developer from Lagos, Nigeira. </h1>
+          I'm a software engineer currently based in Limerick, Ireland </h1>
       </div>
 
       <div class="container" id="projects">
         <h4>These are some of my projects...</h4>
         <div class="card-deck">
           <div class="project-tile">
+            <div class="card" id="project-card">
+              <a href="https://tcsys.herokuapp.com/" target="_blank">
+                <img class="card-img-top" src='{{path}}{{'projects/ticketing-sys.png'}}' alt="project">
+              </a>
+              <div class="card-body" id="card-body">
+                <p>Trouble Ticketing System</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-tile">
+            <div class="card" id="project-card">
+              <a href="https://bookexchange19.herokuapp.com/" target="_blank">
+                <img class="card-img-top" src='{{path}}{{'projects/book-exchange.png'}}' alt="project">
+              </a>
+              <div class="card-body" id="card-body">
+                <p>Book Exchange App</p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="project-tile">
             <div class="card" id="project-card">
               <a href="https://learning-daybook.herokuapp.com/" target="_blank">
                 <img class="card-img-top" src='{{path}}{{'projects/learning-log.png'}}' alt="project">
@@ -46,10 +66,10 @@
                 <p>User story</p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
-      
+
     </div>
 
     {% endwith %}
